@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Story Book",
+        "title": "lorem ipsum dolor sit amet, consectetur adipiscing",
+        "price": 0,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?t=st=1727456058~exp=1727459658~hmac=0037e465517a4076637956f0b5bb2f8d511814509d3ee1bf9ea1176f78d6a60f&w=740"
+    },
+    {
+        "id": 2,
+        "name": "Science Book",
+        "title": "Exploring the wonders of science and nature",
+        "price": 15.99,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/stack-books-with-plant_23-2147711412.jpg?w=740"
+    },
+    {
+        "id": 3,
+        "name": "History Book",
+        "title": "A journey through ancient civilizations",
+        "price": 10.00,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/stack-books-reading-room_23-2148493280.jpg?w=740"
+    },
+    {
+        "id": 4,
+        "name": "Children's Story",
+        "title": "Fun adventures for kids",
+        "price": 5.99,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/children-reading-books-outdoor_23-2148542955.jpg?w=740"
+    },
+    {
+        "id": 5,
+        "name": "Math Workbook",
+        "title": "Mastering math through practice",
+        "price": 8.50,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/flat-design-illustration-back-school-concept_23-2148504238.jpg?w=740"
+    },
+    {
+        "id": 6,
+        "name": "Art Guide",
+        "title": "Unleashing your creativity with colors",
+        "price": 0,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/creative-arts-illustration_23-2148530662.jpg?w=740"
+    },
+    {
+        "id": 7,
+        "name": "Programming Basics",
+        "title": "Learn coding from scratch",
+        "price": 25.00,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/programming-concept-illustration_23-2148266371.jpg?w=740"
+    },
+    {
+        "id": 8,
+        "name": "Cooking with Love",
+        "title": "Delicious recipes for every day",
+        "price": 12.99,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-cooking-concept_23-2149320850.jpg?w=740"
+    },
+    {
+        "id": 9,
+        "name": "Photography 101",
+        "title": "Mastering the art of photography",
+        "price": 18.75,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/photography-flat-design_23-2148484989.jpg?w=740"
+    },
+    {
+        "id": 10,
+        "name": "Gardening for Beginners",
+        "title": "How to start your own garden",
+        "price": 7.50,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/flat-gardening-illustration_23-2148543036.jpg?w=740"
+    },
+    {
+        "id": 11,
+        "name": "Travel Guide",
+        "title": "Explore the world with these travel tips",
+        "price": 0,
+        "category": "Free",
+        "image": "https://img.freepik.com/free-vector/travel-concept-illustration_23-2148531682.jpg?w=740"
+    },
+    {
+        "id": 12,
+        "name": "Fitness at Home",
+        "title": "Stay fit with simple home workouts",
+        "price": 19.99,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/home-workout-concept_23-2148503840.jpg?w=740"
+    },
+    {
+        "id": 13,
+        "name": "Mindfulness Meditation",
+        "title": "Improve your well-being with meditation",
+        "price": 8.99,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/meditation-concept-illustration_23-2148483913.jpg?w=740"
+    },
+    {
+        "id": 14,
+        "name": "Financial Freedom",
+        "title": "Manage your money and build wealth",
+        "price": 22.00,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-money-illustration_23-2149331110.jpg?w=740"
+    },
+    {
+        "id": 15,
+        "name": "Home Decor Ideas",
+        "title": "Transform your living space",
+        "price": 9.50,
+        "category": "Paid",
+        "image": "https://img.freepik.com/free-vector/home-decor-interior_23-2148541276.jpg?w=740"
+    }
+]
