@@ -17,7 +17,7 @@ const Signup = () => {
     } = useForm()
 
     const onSubmit = (data) => console.log(data);
-
+    
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
 
@@ -75,9 +75,7 @@ const Signup = () => {
 
                 <p className="mt-4 text-center">
                     Already have an account?{' '}
-                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="text-blue-500 hover:underline">
-                        Login now
-                    </button>
+                    <button onClick={() => document.getElementById('my_modal_3').showModal()} className="text-blue-500 hover:underline">Login now</button>
                     <Login />
                 </p>
             </div>

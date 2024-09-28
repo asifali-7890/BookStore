@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -36,7 +37,7 @@ const Login = () => {
                             placeholder="Enter your email"
                             {...register("email", { required: true })}
                         />
-                        {errors.email &&  <span className='text-red-700'>This field is required</span>}
+                        {errors.email && <span className='text-red-700'>This field is required</span>}
                     </div>
 
                     <div className="mb-6">
@@ -58,24 +59,37 @@ const Login = () => {
                     </button>
 
                     <div className="m-3">
-                        <Link to='/signup'>
-                            Not Registered?<span className=' ml-2 text-md p-2 cursor-pointer rounded-md mt-2'>Signup</span>
-                        </Link>
+                        {isSignUpPage ?
+                            <a href='/signup'>
+                                Not Registered?
+                                <span className='ml-2 text-md p-2 cursor-pointer rounded-md mt-2'>
+                                    Signup
+                                </span>
+                            </a>
+
+                            :
+
+                            <Link to='/signup'>
+                                Not Registered?<span className=' ml-2 text-md p-2 cursor-pointer rounded-md mt-2'>Signup</span>
+                            </Link>}
                     </div>
                 </form>
             </div>
         )
     };
 
+    const location = useLocation();
+    const isSignUpPage = location.pathname.includes('signup');
 
     return (
         <dialog id="my_modal_3" className="modal">
             <div className="modal-box">
                 <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <Link to='/'>
+                    {!isSignUpPage ? <a href='/'>
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                    </Link>
+                    </a> :
+                        <Link to='/'><button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button></Link>
+                    }
                 </form>
                 <div className='mx-6'>
                     <LoginForm />
