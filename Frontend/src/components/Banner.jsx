@@ -4,7 +4,7 @@ import banner from '../../public/Banner.jpg';
 const Banner = () => {
     return (
         <>
-            <div className='  my-8 md:my-20 container flex flex-col md:flex-row max-w-screen-2xl mx-auto md:px-20 px-4'>
+            <div className='  my-16 md:my-28 container flex flex-col md:flex-row max-w-screen-2xl mx-auto md:px-20 px-4'>
                 <div className='md:w-1/2 w-full space-y-6 order-2 md:order-1'>
                     <h1 className='text-4xl'>
                         Hello, welcome here to learn something <span className='text-pink-500'>new everyday!!!</span>

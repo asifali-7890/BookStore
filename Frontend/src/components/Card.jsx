@@ -1,17 +1,17 @@
 import React from 'react'
 
-const Card = ({ item }) => {
+const  Card = ({ item }) => {
     return (
-        <div className="card bg-base-100 w-96 shadow-xl">
+        <div className="card bg-base-100 w-96 shadow-xl hover:scale-105 duration-300">
             <figure>
-                <img 
+                <img
                     className='w-96'
                     src={item.image}
                     alt="Shoes" />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">
-                   {item.name}
+                    {item.name}
                     <div className="badge badge-secondary">{item.category}</div>
                 </h2>
                 <p> {item.title}</p>

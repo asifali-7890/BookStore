@@ -16,10 +16,10 @@ const FreeBook = () => {
         initialSlide: 0,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1424,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     infinite: true,
                     dots: true
                 }
@@ -27,9 +27,9 @@ const FreeBook = () => {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
                 }
             },
             {
@@ -43,12 +43,12 @@ const FreeBook = () => {
     };
 
     return (
-        <div className="z-50 my-8 md:my-20 container space-y-6  max-w-screen-2xl mx-auto md:px-20 px-4">
+        <div className=" my-8 md:my-20 container space-y-6  max-w-screen-2xl mx-auto md:px-20 px-4">
             <div>
                 <h1 className="font-bold text-2xl my-4">Free Offered Courses</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, in id numquam possimus doloribus ipsum, labore asperiores soluta dolor inventore quod ratione. Necessitatibus sapiente tempore veniam suscipit repellendus ad assumenda.</p>
             </div>
-            <div className=" ">
+            <div className="w-full  ">
                 <Slider {...settings}>
                     {filterData.map((item) => <Card key={item.id} item={item} />)}
                 </Slider>

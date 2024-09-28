@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import Login from './Login';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [sticky, setSticky] = useState(false);
@@ -18,7 +20,7 @@ const Navbar = () => {
         }
     },[])
     return (
-        <div className={`z-50 container shadow-md bg-base-100 max-w-screen-2xl mx-auto md:px-20 px-4 fixed top-0 left-0 ${
+        <div className={`z-50 container shadow-md bg-base-100 max-w-screen-2xl mx-auto md:px-20  px-4 fixed top-0 left-0 ${
         sticky? 'sticky-navbar shadow-md bg-base-200 duration-300 transition-all ease-in-out' : ''}`}>
             <div className="navbar ">
                 <div className="navbar-start">
@@ -40,8 +42,10 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 3</a></li>
+                            <Link to='/'>Home</Link>
+                            <Link to='/course'>Course</Link>
+                            <Link to='/contact'>Contact</Link>
+                            <Link to='/about'>About</Link>
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">Book Store</a>
@@ -49,10 +53,10 @@ const Navbar = () => {
                 <div className="navbar-end space-x-3">
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
-                            <li><a>Home</a></li>
-                            <li><a>Course</a></li>
-                            <li><a>Contact</a></li>
-                            <li><a>About</a></li>
+                            <li><a href='/'>Home</a></li>
+                            <li><a href='/course'>Course</a></li>
+                            <li><a href='/contact'>Contact</a></li>
+                            <li><a href='/about'>About</a></li>
                         </ul>
                     </div>
                     <div className="hidden md:block">
@@ -95,7 +99,8 @@ const Navbar = () => {
                         </label>
                     </div>
                     <div className="">
-                        <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-500 duration-300 cursor-pointer">Login</a>
+                        <a onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-500 duration-300 cursor-pointer">Login</a>
+                        <Login />
                     </div>
                 </div>
             </div>
