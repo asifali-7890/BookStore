@@ -1,7 +1,7 @@
 import User from '../modal/user.modal.js';
 import bcryptjs from 'bcrypt'
 
-const getUser = async (req, res) => {
+export const signup = async (req, res) => {
     try {
         const { fullname, email, password } = req.body;
         const user = await User.findOne({ email });
@@ -16,9 +16,33 @@ const getUser = async (req, res) => {
             password: hashPassword
         });
         await createdUser.save();
-        res.status(201).json({ message: 'User created successfully...' });
+        res.status(201).json({ message: 'User created successfully...', createdUser: createdUser });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
-export default getUser;
+
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email: email });
+        const isMatch = await bcryptjs.compare(password, user.password);
+        if (!user || !isMatch) {
+            return res.status(400).json({ message: 'User not found and password incorrect.' });
+        } else {
+            res.status(200).json({
+                message: 'User created successfully',
+                user: {
+                    _id: user._id,
+                    email: user.email,
+                    password: user.password
+                }
+            }
+            );
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error creating user' });
+    }
+};
+
+

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Login from './Login';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Signup = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate();
 
     const {
         register,
@@ -16,8 +18,33 @@ const Signup = () => {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => console.log(data);
-    
+    const onSubmit = async (data) => {
+        const userInfo = {
+            fullname: data.fullname,
+            email: data.email,
+            password: data.password
+        }
+
+        await axios.post('http://localhost:4001/user/signup', userInfo)
+            .then((response) => {
+                console.log(response.data);
+                if (response.data) {
+                    toast.success('Signup successfully...');
+                    setTimeout(() => {
+                        navigate('/signup');
+                    }, 2000);
+                }
+                localStorage.setItem('Users', JSON.stringify(response.data.createdUser));
+            }).catch((err) => {
+                {
+                    if (err.response) {
+                        console.log(err.response.data.message);
+                        toast.error('Error: ' + err.response.data.message);
+                    }
+                }
+            });
+    }
+
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
 
@@ -38,9 +65,9 @@ const Signup = () => {
                             type="text"
                             className="w-full px-4 py-2 border border-gray-300 rounded-md"
                             placeholder="Enter your name"
-                            {...register("name", { required: true })}
+                            {...register("fullname", { required: true })}
                         />
-                        {errors.email && <span className='text-red-700'>This field is required</span>}
+                        {errors.fullname && <span className='text-red-700'>This field is required</span>}
                     </div>
 
                     <div className="mb-4">

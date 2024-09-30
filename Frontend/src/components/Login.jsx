@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -21,8 +23,35 @@ const Login = () => {
             formState: { errors },
         } = useForm()
 
-        const onSubmit = (data) => console.log(data);
+        const onSubmit = async (data) => {
+            const userInfo = {
+                email: data.email,
+                password: data.password
+            }
 
+            await axios.post('http://localhost:4001/user/login', userInfo)
+                .then((response) => {
+                    console.log(response.data);
+                    if (response.data) {
+                        toast.success('Login successfully...');
+                        document.getElementById('my_modal_3').close();
+                        setTimeout(() => {
+                            window.location.reload();
+                            localStorage.setItem('Users', JSON.stringify(response.data.user));
+                        }, 1000);
+                    }
+                }).catch((err) => {
+                    {
+                        if (err.response) {
+                            console.log(err.response.data.message);
+                            toast.error('Error: ' + err.response.data.message);
+                            setTimeout(() => {
+                                
+                            }, 1000);
+                        }
+                    }
+                });
+        }
 
         return (
             <div className="flex justify-center items-center  bg-gray-100 py-6 ">
@@ -99,4 +128,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

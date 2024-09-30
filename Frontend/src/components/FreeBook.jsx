@@ -23,7 +23,6 @@ const FreeBook = () => {
 
 
     const filterData = book.filter((data) => data.category === 'Free');
-    console.log(filterData);
     var settings = {
         dots: true,
         infinite: false,

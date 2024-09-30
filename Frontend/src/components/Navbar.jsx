@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Login from './Login';
 import { Link } from 'react-router-dom';
+import { AuthContext, useAuth } from '../context/AuthProvider.jsx';
+import Logout from './Logout.jsx';
 
 const Navbar = () => {
     const [sticky, setSticky] = useState(false);
+    const [authUser, setAuthUser] = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
-            if(window.scrollY > 0){
+            if (window.scrollY > 0) {
                 setSticky(true);
-            }else{
+            } else {
                 setSticky(false);
             }
 
@@ -18,10 +21,9 @@ const Navbar = () => {
                 window.removeEventListener('scroll', handleScroll);
             }
         }
-    },[])
+    }, [])
     return (
-        <div className={`z-50 container shadow-md bg-base-100 max-w-screen-2xl mx-auto md:px-20  px-4 fixed top-0 left-0 ${
-        sticky? 'sticky-navbar shadow-md bg-base-200 duration-300 transition-all ease-in-out' : ''}`}>
+        <div className={`z-50 container shadow-md bg-base-100 max-w-screen-2xl mx-auto md:px-20  px-4 fixed top-0 left-0 ${sticky ? 'sticky-navbar shadow-md bg-base-200 duration-300 transition-all ease-in-out' : ''}`}>
             <div className="navbar ">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -98,10 +100,13 @@ const Navbar = () => {
                             </svg>
                         </label>
                     </div>
-                    <div className="">
-                        <a onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-500 duration-300 cursor-pointer">Login</a>
-                        <Login />
-                    </div>
+                    {
+                        authUser ? <Logout /> :
+                            <div className="">
+                                <a onClick={() => document.getElementById('my_modal_3').showModal()} className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-500 duration-300 cursor-pointer">Login</a>
+                                <Login />
+                            </div>
+                    }
                 </div>
             </div>
         </div>
