@@ -9,8 +9,8 @@ const Course = () => {
 
     const [book, setBook] = useState([]);
     const getBook = async (req, res) => {
-        try {
-            const booklist = await axios.get('http://localhost:4001/book');
+        try {//
+            const booklist = await axios.get('https://bookstore-copy-api.vercel.app/book');
             setBook(booklist.data);
             console.log(booklist.data);
         } catch (error) {

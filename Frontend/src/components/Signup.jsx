@@ -25,7 +25,7 @@ const Signup = () => {
             password: data.password
         }
 
-        await axios.post('http://localhost:4001/user/signup', userInfo)
+        await axios.post('https://bookstore-copy-api.vercel.app/user/signup', userInfo)
             .then((response) => {
                 console.log(response.data);
                 if (response.data) {
